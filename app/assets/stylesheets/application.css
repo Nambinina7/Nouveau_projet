@@ -25,11 +25,3 @@
  *= require_tree .
  *= require_self
  */
-
- #A{
- 	background-image: url(hero_bg_1.jpg);
- }
-
-#B{
-	background-image: url(hero_bg_2.jpg);
-}
