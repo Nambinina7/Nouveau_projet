@@ -1,0 +1,72 @@
+
+<div class="container p-5  badge-info">
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <form action="<%= search_filter_path %>" class="form-group">
+                    <select name="district" id="district">    
+                        <% @districts.each do |district| %>
+                            <option value="<%= district.id %>"> <%= district.name %> </option>
+                        <%end%>
+                    </select>
+                    <select name="restaurant1" id="restaurant1"></select>
+                   <input type="submit" class="btn btn-success text-white rounded-circle-2" value="Search">
+            </form>
+            </center>
+        </div>
+    </div>
+</div>
+<!--
+<script>
+    $(function(){
+        $('#restaurant1').hide();
+        $('#restaurant2').hide();
+        $('#restaurant3').hide();
+
+        $('[name="district"]').on('change', function(e){
+            var select = e.target.options[e.target.selectedIndex].value;
+            district_id = (parseInt(select));
+            if (district_id === 1){
+                $('#restaurant1').children().remove();
+                $('#restaurant1').append('<% @restaurant1.each do |restaurant| %><option value="<%= restaurant.id %>"><%= restaurant.name %> </option><%end%>');
+                $('#restaurant1').css('display', 'inline-block');
+            }
+
+            if (district_id === 2){
+                $('#restaurant1').children().remove();
+                $('#restaurant1').append('<% @restaurant2.each do |restaurant| %><option value="<%= restaurant.id %>"><%= restaurant.name %> </option><%end%>');
+                $('#restaurant1').css('display', 'inline-block'); 
+            }
+
+            if (district_id === 3){
+                $('#restaurant1').children().remove();
+                $('#restaurant1').append('<% @restaurant3.each do |restaurant| %><option value="<%= restaurant.id %>"><%= restaurant.name %> </option><%end%>');
+                $('#restaurant1').css('display', 'inline-block');
+            }
+        });
+    });
+</script>
+
+-->
+<script>
+$(function(){
+    $('[name="district"]').on('change', function(e){
+            console.log('dsdsds');
+            var select = e.target.options[e.target.selectedIndex].value;
+            $.ajax({
+                data: { id_district: select},
+                method: "get",
+                url: '<%= search_essaie_path %>',
+                success: function(response){
+                    console.log(response),
+                    console.log(response[0]),
+                    console.log(response[0].name),
+                    $.each(response, function(i, item){
+                        $('#restaurant1').append('<option value="sdsdsdsddsd">'+item.name+'</option>');
+                    });  
+                }
+            });
+
+    });
+});
+</script>

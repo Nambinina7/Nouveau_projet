@@ -1,0 +1,15 @@
+<center><h1>Resultat de la recherche</h1></center>
+<% if @produit.empty? == true%>
+		Aucun résultat
+<% else %>
+	<% if @produit.empty? != true %>
+		<% @produit.each do |produit|%>
+			<div>
+				<h3> <%= link_to produit.nom, produit %> </h3>
+				<%=produit.classe%><br>
+				<%=produit.numero%><br>
+				<%=produit.description%>
+			</div>
+		<% end %>
+	<% end %>
+<% end %>
