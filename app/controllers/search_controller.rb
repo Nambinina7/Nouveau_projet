@@ -3,11 +3,8 @@ class SearchController < ApplicationController
     p "A" * 100
     p params
     p "B" * 100
-
-    restaurant = params[:restaurant1].to_i
-    # district = params[:district].to_i
-
-    @product = Product.where(restaurant: restaurant)
+    restaurant = params[:restaurant].to_i
+    @products = Restaurant.first.products
   end
   
   def essaie

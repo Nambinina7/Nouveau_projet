@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= form.label :district %>
+    <%= form.select "district", options_from_collection_for_select(@districts, "id", "name")%>
+  </div>
 
   <div class="field">
     <%= form.label :name %>
@@ -25,3 +29,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+

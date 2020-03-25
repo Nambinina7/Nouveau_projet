@@ -1,3 +1,4 @@
 class Product < ApplicationRecord
-    belongs_to :restaurant
+	has_many :restaurant_products
+	has_many :restaurants, through: :restaurant_products
 end

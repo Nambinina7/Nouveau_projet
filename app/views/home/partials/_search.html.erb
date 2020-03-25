@@ -1,12 +1,21 @@
-<center><h1>Resultat de la recherche</h1></center>
-<% if @product.empty? == true%>
-		Aucun résultat
-<% else %>
-	<% if @product.empty? != true %>
-		<% @product.each do |produit|%>
-			<div>
-				<h3> <%= link_to product.name, product %> </h3>
-			</div>
-		<% end %>
-	<% end %>
-<% end %>
+ <h1>Search#filter</h1>
+<p>Find me in app/views/search/filter.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> 

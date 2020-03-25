@@ -1,38 +1,5 @@
 <%= render 'home/partials/index' %>
 <%= render 'home/partials/recherche' %>
- 
-<!--
-<script>
-    $(function(){
-        $('#restaurant1').hide();
-        $('#restaurant2').hide();
-        $('#restaurant3').hide();
-
-        $('[name="district"]').on('change', function(e){
-            var select = e.target.options[e.target.selectedIndex].value;
-            district_id = (parseInt(select));
-            if (district_id === 1){
-                $('#restaurant1').children().remove();
-                $('#restaurant1').append('<% @restaurant1.each do |restaurant| %><option value="<%= restaurant.id %>"><%= restaurant.name %> </option><%end%>');
-                $('#restaurant1').css('display', 'inline-block');
-            }
-
-            if (district_id === 2){
-                $('#restaurant1').children().remove();
-                $('#restaurant1').append('<% @restaurant2.each do |restaurant| %><option value="<%= restaurant.id %>"><%= restaurant.name %> </option><%end%>');
-                $('#restaurant1').css('display', 'inline-block'); 
-            }
-
-            if (district_id === 3){
-                $('#restaurant1').children().remove();
-                $('#restaurant1').append('<% @restaurant3.each do |restaurant| %><option value="<%= restaurant.id %>"><%= restaurant.name %> </option><%end%>');
-                $('#restaurant1').css('display', 'inline-block');
-            }
-        });
-    });
-</script>
-
--->
 <script>
 $(function(){
     $('[name="district"]').on('change', function(e){

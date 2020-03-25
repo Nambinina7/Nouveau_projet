@@ -15,6 +15,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
+    @districts = District.all
   end
 
   # GET /restaurants/1/edit
@@ -24,8 +25,10 @@ class RestaurantsController < ApplicationController
   # POST /restaurants
   # POST /restaurants.json
   def create
+    p "A"*100
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.district = District.find(3)
+    @restaurant.district = District.find(params[:restaurant][:district])
+    puts "district_id"
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }

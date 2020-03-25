@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <% @restaurants.each do |restaurant| %>
+        <div class="custom-control custom-checkbox custom-control-inline">
+           <%= check_box_tag 'product[restaurant][]', restaurant.id, false, id: "restaurant_products_#{restaurant.id}", class: 'custom-control-input' %>
+           <%= label_tag "restaurant_products_#{restaurant.id}", restaurant.name, class: 'custom-control-label' %>
+        </div>
+    <% end %>
+</div>
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
