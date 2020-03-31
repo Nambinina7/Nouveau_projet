@@ -1,5 +1,6 @@
 <%= render 'home/partials/index' %>
 <%= render 'home/partials/recherche' %>
+<%= render 'home/partials/product' %>
 <script>
 $(function(){
     $('[name="district"]').on('change', function(e){
@@ -15,7 +16,7 @@ $(function(){
                     console.log(response[0].name),
                     $('#restaurant1').children().remove();
                     $.each(response, function(i, item){
-                        $('#restaurant1').append('<option value="sdsdsdsddsd">'+item.name+'</option>');
+                         $('#restaurant1').append('<option ' + 'value=' + `${item.id}` + '>'+item.name+'</­option>');
                     });  
                 }
             });
