@@ -3,16 +3,16 @@ class SearchController < ApplicationController
     p "A" * 100
     p params
     p "B" * 100
-    restaurant = params[:restaurant1].to_i
+    restaurant = params[:restaurant].to_i
     # district = params[:district].to_i
 
-    @products = Product.where(restaurant: restaurant)
+    @products = Restaurant.find(restaurant).products
   end
   
   def essaie
     p "A" * 100
     p params
-
+1
     district = District.find(params[:id_district].to_i)
     @restaurants = district.restaurants
     render json: @restaurants
