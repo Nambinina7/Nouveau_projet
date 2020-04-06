@@ -1,21 +1,38 @@
- <h1>Search#filter</h1>
-<p>Find me in app/views/search/filter.html.erb</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
+<center>
+  <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+  <!-- Recently Favorited -->
+  <div class="widget dashboard-container my-adslist">
+    <h1 class="widget-header">RESULTATS DE LA RECHERCHE</h1>
+    <table class="table table-responsive product-dashboard-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Nom du Produit</th>
+          <th class="text-center">Description</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @products.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
+        <td class="product-thumb">
+          <img width="80px" height="auto" src="<%= image_url('products/products-1.jpg')%>" alt="image description"></td>
+          <td class="product-details">
+          <h3 class="title"><%= product.name %></h3>
+        </td>
+        <td class="product-category"><span class="categories"><%= product.description %></span></td>
+        <td class="action" data-title="Action">
+          <div class="">
+            <ul class="list-inline justify-content-center">
+              <li class="list-inline-item">
+                <%= link_to '', product, class: 'fa fa-eye' %>
+              </li>
+            </ul>
+          </div>
+        </td>
       </tr>
-    <% end %>
-  </tbody>
-</table> 
+      <% end %>
+      </tbody>
+    </table>
+</div>
+</center>
